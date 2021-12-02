@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+ <style>mark{
+ background-color:#52c1dc
+;
+}</style>
+ <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+ <script type="text/javascript">
+const url= 'http://localhost:8080/api/country'
+
+
+ 
+ 
+
+const getTableCountry=async()=>{
+ 
+ try {
+  
+  const getTable=await fetch(`http://localhost:8080/api/country`, {
+method:"GET"
+  })
+  const json = await getTable.json();
+  console.log(json);
+  document.getElementById("json").textContent=JSON.stringify(json,null,2)
+
+  
+
+ }catch(error){
+  console.log(error.message)
+ }
+}
+
+
+ const getTableDiseaseType = async () => {
+
+  try {
+
+   const getTable = await fetch(`http://localhost:8080/api/diseasetype`, {
+    method: "GET"
+   })
+   const json = await getTable.json();
+   console.log(json);
+   document.getElementById("json").textContent = JSON.stringify(json, null, 2)
+
+
+
+  } catch (error) {
+   console.log(error.message)
+  }
+ }
+
+ const getTableDisease = async () => {
+
+   try {
+
+    const getTable = await fetch(`http://localhost:8080/api/disease`, {
+     method: "GET"
+    })
+    const json = await getTable.json();
+    console.log(json);
+    document.getElementById("json").textContent = JSON.stringify(json, null, 2)
+
+
+
+   } catch (error) {
+    console.log(error.message)
+   }
+  }
+
+ const getTableDiscover = async () => {
+
+  try {
+
+   const getTable = await fetch(`http://localhost:8080/api/discover`, {
+    method: "GET"
+   })
+   const json = await getTable.json();
+   console.log(json);
+   document.getElementById("json").textContent = JSON.stringify(json, null, 2)
+
+
+
+  } catch (error) {
+   console.log(error.message)
+  }
+ }
+
+ const getTableUsers = async () => {
+
+   try {
+
+    const getTable = await fetch(`http://localhost:8080/api/users`, {
+     method: "GET"
+    })
+    const json = await getTable.json();
+    console.log(json);
+    document.getElementById("json").textContent = JSON.stringify(json, null, 2)
+
+
+
+   } catch (error) {
+    console.log(error.message)
+   }
+  }
+
+  const getTablePublicServant = async () => {
+
+    try {
+
+     const getTable = await fetch(`http://localhost:8080/api/publicservant`, {
+      method: "GET"
+     })
+     const json = await getTable.json();
+     console.log(json);
+     document.getElementById("json").textContent = JSON.stringify(json, null, 2)
+
+
+
+    } catch (error) {
+     console.log(error.message)
+    }
+   }
+
+   const getTableDoctor = async () => {
+
+     try {
+
+      const getTable = await fetch(`http://localhost:8080/api/doctor`, {
+       method: "GET"
+      })
+      const json = await getTable.json();
+      console.log(json);
+      document.getElementById("json").textContent = JSON.stringify(json, null, 2)
+
+
+
+     } catch (error) {
+      console.log(error.message)
+     }
+    }
+
+    const getTableSpecialize = async () => {
+
+      try {
+
+       const getTable = await fetch(`http://localhost:8080/api/specialize`, {
+        method: "GET"
+       })
+       const json = await getTable.json();
+       console.log(json);
+       document.getElementById("json").textContent = JSON.stringify(json, null, 2)
+
+
+
+      } catch (error) {
+       console.log(error.message)
+      }
+     }
+   
+     const getTableRecord = async () => {
+
+       try {
+
+        const getTable = await fetch(`http://localhost:8080/api/record`, {
+         method: "GET"
+        })
+        const json = await getTable.json();
+        console.log(json);
+        document.getElementById("json").textContent = JSON.stringify(json, null, 2)
+
+
+
+       } catch (error) {
+        console.log(error.message)
+       }
+      }
+      const getOne=async()=>{
+        var table_val1 = document.getElementById("table_val").value
+        var userInput1_val = document.getElementById("userInput1").value
+        var userInput2_val = document.getElementById("userInput2").value
+        var userInput3_val = document.getElementById("userInput3").value
+        try {
+
+          if (userInput2_val != "") {
+            if (userInput3_val != "") {
+              const getTable = await fetch(`http://localhost:8080/api/${table_val1}/${userInput1_val}/${userInput2_val}/${userInput3_val}`, {
+                method: "GET"
+
+              })
+              const json = await getTable.json();
+              console.log(json);
+              document.getElementById("one_element").textContent = JSON.stringify(json, null, 2)
+            } else {
+              const getTable = await fetch(`http://localhost:8080/api/${table_val1}/${userInput1_val}/${userInput2_val}`, {
+                method: "GET"
+
+              })
+              const json = await getTable.json();
+              console.log(json);
+              document.getElementById("one_element").textContent = JSON.stringify(json, null, 2)
+            }
+          } else {
+
+            const getTable = await fetch(`http://localhost:8080/api/${table_val1}/${userInput1_val}`, {
+              method: "GET"
+
+            })
+            const json = await getTable.json();
+            console.log(json);
+            document.getElementById("one_element").textContent = JSON.stringify(json, null, 2)
+          }
+
+
+        } catch (error) {
+          console.log(error.message)
+        }
+      }
+      const deleterow = async () =>{
+       var table_val1= document.getElementById("table_val").value
+       var userInput1_val= document.getElementById("userInput1").value
+       var userInput2_val = document.getElementById("userInput2").value
+       var userInput3_val = document.getElementById("userInput3").value
+       console.log("http://localhost:8080/api/"+userInput1_val)
+       console.log(userInput2_val)
+       try {
+        
+        if (userInput2_val!="") { 
+         if(userInput3_val!=""){
+        const getTable = await fetch(`http://localhost:8080/api/${table_val1}/${userInput1_val}/${userInput2_val}/${userInput3_val}`, {
+         method: "DELETE"
+
+        })
+        const json = await getTable.json();
+        console.log(json);
+        document.getElementById("json").textContent = JSON.stringify(json, null, 2)
+       }else{
+        const getTable = await fetch(`http://localhost:8080/api/${table_val1}/${userInput1_val}/${userInput2_val}`, {
+           method: "DELETE"
+
+          })
+          const json = await getTable.json();
+          console.log(json);
+          document.getElementById("json").textContent = JSON.stringify(json, null, 2)
+       }
+       }else{
+        
+         const getTable = await fetch(`http://localhost:8080/api/${table_val1}/${userInput1_val}`, {
+          method: "DELETE"
+
+         })
+         const json = await getTable.json();
+         console.log(json);
+         document.getElementById("json").textContent = JSON.stringify(json, null, 2)
+       }
+
+
+       } catch (error) {
+        console.log(error.message)
+       }
+      }
+      var count_buttons=0
+      
+      function addFields() {
+        
+          var number = document.getElementById("member").value;
+          var container = document.getElementById("container");
+          while (container.hasChildNodes()) {
+            container.removeChild(container.lastChild);
+          }
+          for (i = 0; i < number; i++) {
+            container.appendChild(document.createTextNode("Column " + (i + 1)));
+            var input = document.createElement("input");
+            input.type = "text";
+            input.name = "member" + i;
+            container.appendChild(input);
+            container.appendChild(document.createElement("br"));
+          }
+        if(count_buttons==0){
+          count_buttons=1
+        let btn = document.createElement("button");
+        btn.innerHTML = "Create";
+        btn.type="submit"
+        btn.onclick = function () {
+          createRow();
+        };
+        document.body.appendChild(btn);
+
+
+      }else{
+
+      }
+    }
+  
+        const createRow = async () => {
+          var values= document.getElementById("container");
+          var children=values.childNodes;
+          var table_for_new_row = document.getElementById("table_val_for_create");
+          var values_for_create=[]
+          children.forEach(function (item) {
+            if(typeof item.value!=='undefined'){
+            console.log(item.value+"  "+ table_for_new_row.value);
+            values_for_create.push(item.value)
+          }
+          });
+          if(table_for_new_row.value=='diseasetype'){
+            var data={
+              id: `${values_for_create[0]}`,
+              description: `${values_for_create[1]}`
+            }
+          }else if(table_for_new_row.value == 'country'){
+            var data = {
+              cname: `${values_for_create[0]}`,
+              population: `${values_for_create[1]}`
+            }
+          } else if (table_for_new_row.value == 'disease') {
+            var data = {
+              disease_code: `${values_for_create[0]}`,
+              pathogen: `${values_for_create[1]}`,
+              description: `${values_for_create[2]}`,
+              id: `${values_for_create[3]}`
+            }
+          } else if (table_for_new_row.value == 'discover') {
+            var data = {
+              cname: `${values_for_create[0]}`,
+              disease_code: `${values_for_create[1]}`,
+              first_enc_date: `${values_for_create[2]}`
+            }
+          } else if (table_for_new_row.value == 'users') {
+            var data = {
+              email: `${values_for_create[0]}`,
+              name: `${values_for_create[1]}`,
+              surname: `${values_for_create[2]}`,
+              salary: `${values_for_create[3]}`,
+              phone: `${values_for_create[4]}`,
+              cname: `${values_for_create[5]}`
+            }
+          } else if (table_for_new_row.value == 'publicservant') {
+            var data = {
+              email: `${values_for_create[0]}`,
+              department: `${values_for_create[1]}`
+            }
+          } else if (table_for_new_row.value == 'doctor') {
+            var data = {
+              email: `${values_for_create[0]}`,
+              degree: `${values_for_create[1]}`
+            }
+          } else if (table_for_new_row.value == 'specialize') {
+            var data = {
+              id: `${values_for_create[0]}`,
+              email: `${values_for_create[1]}`
+            }
+          } else if (table_for_new_row.value == 'record') {
+            var data = {
+              email: `${values_for_create[0]}`,
+              cname: `${values_for_create[1]}`,
+              disease_code: `${values_for_create[2]}`,
+              total_deaths: `${values_for_create[3]}`,
+              total_patients: `${values_for_create[4]}`
+            }
+          }else{
+            console.log("ERROR!!!!!!!!!!!!!!")
+          }
+          const createRow_result = await fetch(`http://localhost:8080/api/${table_for_new_row.value}`, {
+            method: 'POST',
+             headers: {
+              'Accept': 'application / json',
+      'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          })
+          const content = await createRow_result.json();
+          console.log(content)
+        }
+
+
+        const updateRow = async () => {
+          var columns_for_update = document.getElementById("columns").value;
+          columns_for_update=columns_for_update.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+          var values_for_update = document.getElementById("values_for_update").value;  
+          values_for_update = values_for_update.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+
+          var table_for_new_row= document.getElementById("table_val_for_update");
+          console.log(columns_for_update)
+          console.log(values_for_update)
+          var vals={}
+          var keys=0
+          if(table_for_new_row.value== 'diseasetype'|| table_for_new_row.value == 'country'|| table_for_new_row.value == 'disease'
+          || table_for_new_row.value == 'users'|| table_for_new_row.value == 'publicservant'|| table_for_new_row.value == 'doctor'){
+            keys=1
+          }else if(table_for_new_row.value == 'discover' || table_for_new_row.value == 'specialize'){
+            keys=2
+          }else if(table_for_new_row.value == 'record'){
+            keys=3
+          }
+          var json_for_update
+          if(keys==1){
+            var key1=values_for_update[0]
+            console.log("adress " + `http://localhost:8080/api/${table_for_new_row.value}/${key1}`)
+            const table_for_update = await fetch(`http://localhost:8080/api/${table_for_new_row.value}/${key1}`, {
+              method: "GET"
+
+            })
+             json_for_update = await table_for_update.json();
+            
+            
+          }else if(keys==2){
+            var key1 = values_for_update[0]
+            var key2=values_for_update[1]
+            console.log("adress " + `http://localhost:8080/api/${table_for_new_row.value}/${key1}/${key2}`)
+            const table_for_update = await fetch(`http://localhost:8080/api/${table_for_new_row.value}/${key1}/${key2}`, {
+              method: "GET"
+
+            })
+             json_for_update = await table_for_update.json();
+            
+          }else if(keys==3){
+            var key1 = values_for_update[0]
+            var key2 = values_for_update[1]
+            var key3=values_for_update[2]
+            console.log("adress " + `http://localhost:8080/api/${table_for_new_row.value}/${key1}/${key2}/${key3}`)
+            const table_for_update = await fetch(`http://localhost:8080/api/${table_for_new_row.value}/${key1}/${key2}/${key3}`, {
+              method: "GET"
+
+            })
+             json_for_update = await table_for_update.json();
+            
+          }
+          console.log(json_for_update)
+          for (const x in json_for_update) {
+            if ($.inArray(x, columns_for_update) > -1) {
+              
+            } else {
+              columns_for_update.push(x)
+              values_for_update.push(json_for_update[x])
+            }
+          }
+          
+          for(var count_new = 0; count_new < values_for_update.length; count_new++){
+             console.log(values_for_update[count_new]+ "current val")
+            
+
+              console.log(values_for_update[count_new]+" contains double quotes")
+              values_for_update[count_new].replace(/['"]+/g, '')
+            
+          }
+          
+          for (var i = 0; i < columns_for_update.length; i++) {
+            vals[columns_for_update[i]] = `${values_for_update[i]}`
+          }
+          console.log("New columns: "+columns_for_update+" New values: "+values_for_update)
+          const updateRow_result = await fetch(`http://localhost:8080/api/${table_for_new_row.value}`, {
+            method: 'PUT',
+            headers: {
+              'Accept': 'application / json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(vals)
+          })
+          const content = await updateRow_result.json();
+          console.log(content)
+        }
+
+
+ window.onload = function () {
+  let countryButton = document.getElementById("country");
+  countryButton.addEventListener('click', getTableCountry);
+
+  let diseasetypeButton = document.getElementById("disease_type");
+  diseasetypeButton.addEventListener('click', getTableDiseaseType);
+
+  let diseaseButton = document.getElementById("disease");
+  diseaseButton.addEventListener('click', getTableDisease);
+
+  let DiscoverButton = document.getElementById("discover");
+  DiscoverButton.addEventListener('click', getTableDiscover);
+
+  let UsersButton = document.getElementById("users");
+  UsersButton.addEventListener('click', getTableUsers);
+
+  let PSButton = document.getElementById("publicservant");
+  PSButton.addEventListener('click', getTablePublicServant);
+
+  let DoctorButton = document.getElementById("doctor");
+  DoctorButton.addEventListener('click', getTableDoctor);
+
+  let SpecializeButton = document.getElementById("specialize");
+  SpecializeButton.addEventListener('click', getTableSpecialize);
+
+  let RecordButton = document.getElementById("record");
+  RecordButton.addEventListener('click', getTableRecord);
+
+  
+ }
+
+ </script>
+</head>
+<body>
+ <h1 style="text-align:center">Tables</h1>
+ <h2>View Tables:</h2>
+<pre id="json"></pre>
+<input id="country" type="button" value="Country List" />
+<input id="disease_type" type="button" value="DiseaseType List" />
+<input id="disease" type="button" value="Disease List" />
+<input id="discover" type="button" value="Discover List" />
+<input id="users" type="button" value="Users List" />
+<input id="publicservant" type="button" value="PublicServant List" />
+<input id="doctor" type="button" value="Doctor List" />
+<input id="specialize" type="button" value="Specialize List" />
+<input id="record" type="button" value="Record List" />
+<h2>Delete row/ View Row:</h2>
+<h3>First key:</h3>
+<input style="top:80%; left:5%; width:40%;" type="text" id="userInput1" />
+<h3>Second key(ONLY IF NEEDED):</h3>
+<input style="top:80%; left:5%; width:40%;" type="text" id="userInput2" />
+<h3>Third key(ONLY FOR RECORD):</h3>
+<input style="top:80%; left:5%; width:40%;" type="text" id="userInput3" />
+
+<h4>Note: id for <mark>DiseaseType</mark> || cname for <mark>Country</mark> || disease_code for <mark>Disease</mark> || cname, disease_code for <mark>Discover</mark>||
+ email for <mark>Users</mark>|| email for <mark>PublicServant</mark> || email for <mark>Doctor</mark> || id, email for <mark>Specialize</mark> || email,cname, disease_code for <mark>Record</mark>
+ <h3>Table:</h3>
+ <select name="Table" id="table_val">
+  <option value="diseasetype">DiseaseType</option>
+  <option value="country">Country</option>
+  <option value="disease">Disease</option>
+  <option value="discover">Discover</option>
+  <option value="users">Users</option>
+  <option value="publicservant">PublicServant</option>
+  <option value="doctor">Doctor</option>
+  <option value="specialize">Specialize</option>
+  <option value="record">Record</option>
+
+  
+ </select>
+ <h2></h2>
+ <input style=" top:50%; left:5%; width:40%;" type="submit" value="Submit" onclick="deleterow();" />
+ <br><br>
+ <input style=" top:50%; left:5%; width:40%;" type="submit" value="View one element" onclick="getOne();" />
+<pre id="one_element"></pre>
+</h4>
+
+<div style="position: relative;">
+  <h2>Update Row</h2>
+<select name="Table_Update" id="table_val_for_update">
+  <option value="diseasetype">DiseaseType</option>
+  <option value="country">Country</option>
+  <option value="disease">Disease</option>
+  <option value="discover">Discover</option>
+  <option value="users">Users</option>
+  <option value="publicservant">PublicServant</option>
+  <option value="doctor">Doctor</option>
+  <option value="specialize">Specialize</option>
+  <option value="record">Record</option>
+
+
+</select>
+  <h3>Body (1st box-columns, 2nd box-values):
+    
+  </h3>
+  <h4>Note: Please use commas between each value. NO SPACES. Provide keys first.
+If there are multiple keys-provide them in the order provided by Delete row/View row's note. 
+  </h4><!-- Add a link to that part of the page-->
+  <textarea id="columns" rows="4" cols="20" name="columns"></textarea>
+  <textarea id="values_for_update" rows="4" cols="20" name="rows"></textarea>
+  
+  <br><br>
+  <input type="submit" value="Submit " onclick="updateRow();">
+
+</div>
+
+<h2>Create</h2>
+
+<select name="Table_create" id="table_val_for_create">
+  <option value="diseasetype">DiseaseType</option>
+  <option value="country">Country</option>
+  <option value="disease">Disease</option>
+  <option value="discover">Discover</option>
+  <option value="users">Users</option>
+  <option value="publicservant">PublicServant</option>
+  <option value="doctor">Doctor</option>
+  <option value="specialize">Specialize</option>
+  <option value="record">Record</option>
+
+
+</select>
+<h3></h3>
+<input type="text" id="member" name="member" value="">Number of columns: (up to 6)<br />
+<a href="#" id="filldetails" onclick="addFields()">Fill rows</a>
+<div id="container" />
+
+
+
+</body>
+</html>
